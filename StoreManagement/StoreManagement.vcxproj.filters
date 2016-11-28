@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{9fc84bdb-157e-4c06-a85c-55a67279c164}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{470a4ad6-f109-47d1-91c7-2397b381d044}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Welcome">
+      <UniqueIdentifier>{65bf64a8-62bc-4483-b4b9-39b316cf35fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Welcome\Signin">
+      <UniqueIdentifier>{8aeefa88-7adc-4a13-9d2e-28a4a9a3f53f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Welcome\Signup">
+      <UniqueIdentifier>{2c426bc1-dafe-466b-ab2d-1474fa85569f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Welcome\Signin\Main">
+      <UniqueIdentifier>{2e6f0d5d-7711-46e7-800f-f7ddb0ddf4b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Welcome\Signin\Main\Change Password">
+      <UniqueIdentifier>{3bc3d988-4dcf-4c93-8802-213e2a912632}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Welcome\Signin\Main\Category">
+      <UniqueIdentifier>{5a58d23e-989d-42fb-84fa-2535af2cf221}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Welcome\Signin\Main\Product">
+      <UniqueIdentifier>{6746dc77-0e8e-4351-8e6a-84640a22cf7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Managers">
+      <UniqueIdentifier>{fc7a843a-a366-46a0-b95f-8e843b61c7e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Items">
+      <UniqueIdentifier>{a7881c9a-4be4-4f87-8809-9f4b8f20ac60}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenBase.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="NavigationManager.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WelcomeScreen.h">
+      <Filter>UI\Welcome</Filter>
+    </ClInclude>
+    <ClInclude Include="SignInScreen.h">
+      <Filter>UI\Welcome\Signin</Filter>
+    </ClInclude>
+    <ClInclude Include="SignUpScreen.h">
+      <Filter>UI\Welcome\Signup</Filter>
+    </ClInclude>
+    <ClInclude Include="MainScreen.h">
+      <Filter>UI\Welcome\Signin\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangePasswordScreen.h">
+      <Filter>UI\Welcome\Signin\Main\Change Password</Filter>
+    </ClInclude>
+    <ClInclude Include="CategoryMenuScreen.h">
+      <Filter>UI\Welcome\Signin\Main\Category</Filter>
+    </ClInclude>
+    <ClInclude Include="ProductMenuScreen.h">
+      <Filter>UI\Welcome\Signin\Main\Product</Filter>
+    </ClInclude>
+    <ClInclude Include="AddCategoryScreen.h">
+      <Filter>UI\Welcome\Signin\Main\Category</Filter>
+    </ClInclude>
+    <ClInclude Include="StoredItemManager.h">
+      <Filter>Data\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="CategoryManager.h">
+      <Filter>Data\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="UsersManager.h">
+      <Filter>Data\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>Data\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Category.h">
+      <Filter>Data\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="StoredItem.h">
+      <Filter>Data\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="PaginatedScreen.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StoreManagement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenBase.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="NavigationManager.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WelcomeScreen.cpp">
+      <Filter>UI\Welcome</Filter>
+    </ClCompile>
+    <ClCompile Include="SignInScreen.cpp">
+      <Filter>UI\Welcome\Signin</Filter>
+    </ClCompile>
+    <ClCompile Include="SignUpScreen.cpp">
+      <Filter>UI\Welcome\Signup</Filter>
+    </ClCompile>
+    <ClCompile Include="MainScreen.cpp">
+      <Filter>UI\Welcome\Signin\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangePasswordScreen.cpp">
+      <Filter>UI\Welcome\Signin\Main\Change Password</Filter>
+    </ClCompile>
+    <ClCompile Include="CategoryMenuScreen.cpp">
+      <Filter>UI\Welcome\Signin\Main\Category</Filter>
+    </ClCompile>
+    <ClCompile Include="ProductMenuScreen.cpp">
+      <Filter>UI\Welcome\Signin\Main\Product</Filter>
+    </ClCompile>
+    <ClCompile Include="AddCategoryScreen.cpp">
+      <Filter>UI\Welcome\Signin\Main\Category</Filter>
+    </ClCompile>
+    <ClCompile Include="StoredItemManager.cpp">
+      <Filter>Data\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="CategoryManager.cpp">
+      <Filter>Data\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="UsersManager.cpp">
+      <Filter>Data\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Category.cpp">
+      <Filter>Data\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="StoredItem.cpp">
+      <Filter>Data\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="User.cpp">
+      <Filter>Data\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="PaginatedScreen.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

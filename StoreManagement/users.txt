@@ -1,0 +1,7 @@
+#This is the users file
+#Header is:ID;USERNAME;HASH
+#DO NOT MESS WITH THIS
+#ID=3
+1;qw;113
+2;qa;113
+3;q;113

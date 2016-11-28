@@ -1,0 +1,5 @@
+#This is the categories file
+#Header is:ID;NAME;DESCRIPTION
+#DO NOT MESS WITH THIS
+#ID=1
+1;test;this is some sort of category
