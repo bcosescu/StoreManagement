@@ -9,7 +9,7 @@ public:
 
 	void layout();
 	virtual void layoutContent() = 0;
-	virtual void handleSpecialKey(int specialKey) {}
+	virtual bool handleSpecialKey(int specialKey) { return false; }
 	virtual void handleInput(const std::string& input) = 0;
 	virtual bool handleBack();
 

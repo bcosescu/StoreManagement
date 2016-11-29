@@ -8,6 +8,7 @@ CCategoryManager::CCategoryManager(void)
 {
 	_headerForFile.push_back("#This is the categories file");
 	_headerForFile.push_back("#Header is:ID;NAME;DESCRIPTION");
+    importCategories();
 }
 
 

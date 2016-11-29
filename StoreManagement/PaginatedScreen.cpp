@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "PaginatedScreen.h"
 #include "Utils.h"
-#include <iomanip>
+#include <math.h> 
 
 
 CPaginatedScreen::CPaginatedScreen(const std::string& screenName)
@@ -10,6 +10,7 @@ CPaginatedScreen::CPaginatedScreen(const std::string& screenName)
 	_pages = 1;
 	_currentPage = 1;
 	_recordsCount = 0;
+    _recordsOnPageCount = 0;
 }
 
 
@@ -17,36 +18,45 @@ CPaginatedScreen::~CPaginatedScreen(void)
 {
 }
 
+void CPaginatedScreen::updatePageInfo(int recordsOnPage, int totalRecordsOnPage)
+{
+    _recordsCount = totalRecordsOnPage;
+    _recordsOnPageCount = recordsOnPage;
+    _pages = max(1, (int)ceil(_recordsCount / (double)_recordsOnPageCount));
+}
+
 void CPaginatedScreen::layoutContent()
 {
-	int x = 0;
-	int y = 0;
-	CUtils::wherexy(x, y);
-
-	_pages = min(1, ceil(_recordsCount / double(INPUT_LINE - 3 - y)));
 	std::ios init(NULL);
     init.copyfmt(std::cout);
 
 	std::cout << std::setfill(' ');
-	std::cout << std::setw(5) << std::right << "ID" << std::setw(2) << " " << std::setw(20) << std::left << "NAME" << std::setw(30) << "DESCRIPTION" << std::endl;
+    layoutPage(_recordsOnPageCount * (_currentPage - 1), _currentPage == _pages ?  _recordsCount - _recordsOnPageCount * (_currentPage - 1) : _recordsOnPageCount);
+    std::cout << std::endl << "      Page " << _currentPage << " of " << _pages << std::endl;
+    std::cout << std::endl << "Navigate with <-/-> between pages" << std::endl;
 	std::cout.copyfmt(init);
 }
+
 		
-void CPaginatedScreen::handleSpecialKey(int specialKey)
+bool CPaginatedScreen::handleSpecialKey(int specialKey)
 {
+    bool handled = false;
 	switch(specialKey)
 	{
 		case KEY_LEFT:
 		{
-			_currentPage = min(1, _currentPage - 1);
+			_currentPage = max(1, _currentPage - 1);
+            handled = true;
 			break;
 		}
 		
 		case KEY_RIGHT:
 		{
-			_currentPage = max(_currentPage + 1, _pages);
+			_currentPage = min(_currentPage + 1, _pages);
+            handled = true;
 			break;
 		}
 
 	}
+    return handled;
 }

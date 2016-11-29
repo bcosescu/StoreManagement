@@ -60,9 +60,13 @@ void CScreenBase::layout()
 			case KEY_DOWN:
 			case KEY_LEFT:
 			case KEY_RIGHT:
-				handleSpecialKey(ch);
+            {
+				if(handleSpecialKey(ch))
+                    return;
+
 				ch = _getch();
-				continue;
+				break;
+            }
 		}
 		userInput.push_back(ch);
 		std::cout << (_passwordInput ? '*' : ch);

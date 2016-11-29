@@ -17,7 +17,7 @@ CStoredItemManager::~CStoredItemManager(void)
 
 std::vector<std::string> CStoredItemManager::readContent()
 {
-	std::ifstream inputFile(_fileName);
+	std::ifstream inputFile(_fileName.c_str());
     std::string line;
 	int usersRead = 0;
 	std::vector<std::string> lines;
@@ -49,7 +49,7 @@ std::vector<std::string> CStoredItemManager::readContent()
 
 void CStoredItemManager::writeContent(const std::vector<std::string>& lines)
 {
-	std::ofstream outputFile(_fileName);
+	std::ofstream outputFile(_fileName.c_str());
 
 	for(size_t i = 0; i < _headerForFile.size(); i++)
 	{

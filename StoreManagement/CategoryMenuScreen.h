@@ -9,5 +9,6 @@ public:
 
 	void layoutContent();
 	void handleInput(const std::string& userInput);
+    void layoutPage(int from, int records);
 };
 

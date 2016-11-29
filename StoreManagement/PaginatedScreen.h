@@ -1,5 +1,7 @@
 #pragma once
 #include "screenbase.h"
+#include <iomanip>
+
 class CPaginatedScreen :
 	public CScreenBase
 {
@@ -8,14 +10,15 @@ public:
 	~CPaginatedScreen(void);
 
 	void layoutContent();
-	void handleSpecialKey(int specialKey);
-
-	void updateRecordsCount(int recordsCount);
+	bool handleSpecialKey(int specialKey);
+    virtual void layoutPage(int from, int records) = 0;
 
 protected:
-	int _recordsCount;
+    void updatePageInfo(int recordsOnPage, int totalRecordsOnPage);
 
 private:
+    int _recordsCount;
+    int _recordsOnPageCount;
 	int _pages;
 	int _currentPage;
 };

@@ -44,9 +44,11 @@ void CUtils::wherexy(int& x, int& y)
 int CUtils::getNumericOption(const std::string& input)
 {
 	try {
-		std::string::size_type sz;
-		int option = std::stoi(input, &sz);
-		return option;
+// 		std::string::size_type sz;
+// 		int option = std::stoi(input, &sz);
+// 		return option;
+
+        return CUtils::convertStr<int>(input);
 	}
 	catch (const std::invalid_argument&) {
 	}

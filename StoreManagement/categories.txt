@@ -1,5 +1,16 @@
 #This is the categories file
 #Header is:ID;NAME;DESCRIPTION
 #DO NOT MESS WITH THIS
-#ID=1
+#ID=12
 1;test;this is some sort of category
+2;test;this is some sort of category
+3;test;this is some sort of category
+4;test;this is some sort of category
+5;test;this is some sort of category
+6;test;this is some sort of category
+7;test;this is some sort of category
+8;test;this is some sort of category
+9;test;this is some sort of category
+10;test;this is some sort of category
+11;test;this is some sort of category
+12;qwer;daiasdas

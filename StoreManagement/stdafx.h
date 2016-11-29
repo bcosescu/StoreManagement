@@ -12,9 +12,9 @@
 #include <windows.h>
 #include <iostream>
 
-#define INPUT_LINE 20
+#define INPUT_LINE 24
 #define INVALID_OPTION -1
-#define INVALID_ID MAXINT
+#define INVALID_ID INT_MAX
 #define INVALID_PASSWORD 0
 #define USERS_FILE "users.txt"
 #define CATEGORIES_FILE "categories.txt"
@@ -31,4 +31,9 @@ typedef unsigned int ID;
 
 #define max(a,b)            (((a) > (b)) ? (a) : (b))
 #define min(a,b)            (((a) < (b)) ? (a) : (b))
+
+#define ID_WIDTH 5
+#define NAME_WIDTH 20
+#define DESCRIPTION_WIDTH 30
+#define SEPARATOR_WIDTH 2
 // TODO: reference additional headers your program requires here
