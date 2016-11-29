@@ -23,6 +23,7 @@ public:
 	bool isCategoryNamePresent(const std::string& name);
 	bool createCategory(const std::string& name, const std::string& description);
 	const CATEGORYARRAY& categoriesAsArray() { return _categoriesArr; }
+	CCategory* category(ID id);
 
 private:
 	void importCategories();

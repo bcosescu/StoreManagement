@@ -18,7 +18,9 @@
 #define INVALID_PASSWORD 0
 #define USERS_FILE "users.txt"
 #define CATEGORIES_FILE "categories.txt"
-#define FIELD_DELIM ";"
+#define PRODUCTS_FILE "products.txt"
+#define FIELD_DELIM ';'
+#define SUB_FIELD_DELIM ','
 
 #define KEY_SPECIAL_BEGIN -32
 #define KEY_UP 72
@@ -35,5 +37,6 @@ typedef unsigned int ID;
 #define ID_WIDTH 5
 #define NAME_WIDTH 20
 #define DESCRIPTION_WIDTH 30
+#define QUANTITY_WIDTH 5
 #define SEPARATOR_WIDTH 2
 // TODO: reference additional headers your program requires here

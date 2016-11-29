@@ -1,0 +1,5 @@
+#This is the product file
+#Header is:ID;NAME;DESCRIPTION;QUANTITY;CATEGORIES
+#DO NOT MESS WITH THIS
+#ID=3
+3;aasd;eqweqw;45;3,4,5

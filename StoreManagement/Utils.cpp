@@ -57,6 +57,22 @@ int CUtils::getNumericOption(const std::string& input)
 	return INVALID_OPTION;
 }
 
+bool CUtils::isValidInt(const std::string& input)
+{
+	try {
+ 		std::string::size_type sz;
+ 		int option = std::stoi(input, &sz);
+		
+	}
+	catch (const std::invalid_argument&) {
+		return false;
+	}
+	catch (const std::out_of_range&) {
+		return false;
+	}
+	return true;
+}
+
 void CUtils::split(const std::string &s, char delim, std::vector<std::string> &elems) 
 {
     std::stringstream ss;

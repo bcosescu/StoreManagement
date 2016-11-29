@@ -71,3 +71,12 @@ void CCategoryManager::exportCategories()
 	}
 	writeContent(lines);
 }
+
+CCategory* CCategoryManager::category(ID id)
+{
+	CATEGORYMAP::iterator it = _categories.find(id);
+	if(it == _categories.end())
+		return NULL;
+
+	return it->second;
+}

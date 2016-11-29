@@ -111,6 +111,15 @@
     <ClInclude Include="PaginatedScreen.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="Product.h">
+      <Filter>Data\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="ProductsManager.h">
+      <Filter>Data\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="AddProductScreen.h">
+      <Filter>UI\Welcome\Signin\Main\Product</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -172,6 +181,15 @@
     </ClCompile>
     <ClCompile Include="PaginatedScreen.cpp">
       <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Product.cpp">
+      <Filter>Data\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="ProductsManager.cpp">
+      <Filter>Data\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="AddProductScreen.cpp">
+      <Filter>UI\Welcome\Signin\Main\Product</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -4,6 +4,8 @@
 #include "Product.h"
 #include "ProductsManager.h"
 #include "NavigationManager.h"
+#include "AddProductScreen.h"
+#include "CategoryManager.h"
 
 CProductMenuScreen::CProductMenuScreen(void)
 	:CPaginatedScreen("Product Menu")
@@ -30,8 +32,8 @@ void CProductMenuScreen::handleInput(const std::string& userInput)
 {
     switch(CUtils::getNumericOption(userInput)) 
     {
-   // case 1: CNavigationManager::instance().pushScreen(new CAddCategoryScreen()); break;
-    case 2: 
+		case 1: CNavigationManager::instance().pushScreen(new CAddProductScreen()); break;
+		case 2: 
         {
             setCurrentError("NOT IMPLEMENTED!");
             return;
@@ -46,7 +48,10 @@ void CProductMenuScreen::layoutPage(int from, int records)
 
     std::cout << std::setw(ID_WIDTH) << std::right << "ID" << std::setw(SEPARATOR_WIDTH) << " " 
         << std::setw(NAME_WIDTH) << std::left << "NAME" << std::setw(SEPARATOR_WIDTH) << " " 
-        << std::setw(DESCRIPTION_WIDTH) << "DESCRIPTION" << std::endl << std::endl;
+        << std::setw(20) << "DESCRIPTION" << std::setw(SEPARATOR_WIDTH) << " " 
+		<< std::setw(QUANTITY_WIDTH) << std::right << "QNT" << std::left << std::setw(SEPARATOR_WIDTH) << " " 
+		<< std::setw(10) << "CATEGORIES" 
+		<< std::endl << std::endl;
 
     const std::vector<CProduct*>& products = CProductsManager::instance().productsAsArray();
     for(int i = 0; i < records; i++) 
@@ -54,6 +59,23 @@ void CProductMenuScreen::layoutPage(int from, int records)
         CProduct* product = products[from + i];
         std::cout << std::setw(ID_WIDTH) << std::right << product->id() << std::setw(SEPARATOR_WIDTH) << " " 
             << std::setw(NAME_WIDTH) << std::left << product->name() << std::setw(SEPARATOR_WIDTH) << " " 
-            << std::setw(DESCRIPTION_WIDTH) << product->description() << std::endl;
+            << std::setw(20) << product->description() << std::setw(SEPARATOR_WIDTH) << " " 
+			<< std::setw(QUANTITY_WIDTH) << std::right << product->quantity() << std::left;
+
+		std::cout << std::setw(SEPARATOR_WIDTH) << " " << std::setw(20);
+
+		const std::vector<ID>& categories = product->categories();
+		std::stringstream ss;
+		for(size_t j = 0; j < categories.size(); j++)
+		{
+			CCategory * category = CCategoryManager::instance().category(categories[j]);
+			if(category)
+			{
+				ss << category->name();
+				if(j != categories.size() - 1)
+					ss << ',';
+			}
+		}
+		std::cout << ss.str() << std::endl;
     }
 }

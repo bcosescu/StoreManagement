@@ -20,8 +20,7 @@ public:
         return my;
     }
 
-    bool isProductNamePresent(const std::string& name);
-    bool createProduct(const std::string& name, const std::string& description);
+    bool createProduct(const std::string& name, const std::string& description, int quantity, const std::vector<ID>& cateories);
     const PRODUCTARRAY& productsAsArray() { return _productsArr; }
 
 private:

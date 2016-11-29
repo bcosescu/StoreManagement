@@ -78,13 +78,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddCategoryScreen.h" />
+    <ClInclude Include="AddProductScreen.h" />
     <ClInclude Include="Category.h" />
     <ClInclude Include="CategoryManager.h" />
     <ClInclude Include="CategoryMenuScreen.h" />
     <ClInclude Include="ChangePasswordScreen.h" />
     <ClInclude Include="MainScreen.h" />
     <ClInclude Include="PaginatedScreen.h" />
+    <ClInclude Include="Product.h" />
     <ClInclude Include="ProductMenuScreen.h" />
+    <ClInclude Include="ProductsManager.h" />
     <ClInclude Include="StoredItem.h" />
     <ClInclude Include="StoredItemManager.h" />
     <ClInclude Include="UsersManager.h" />
@@ -100,13 +103,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AddCategoryScreen.cpp" />
+    <ClCompile Include="AddProductScreen.cpp" />
     <ClCompile Include="Category.cpp" />
     <ClCompile Include="CategoryManager.cpp" />
     <ClCompile Include="CategoryMenuScreen.cpp" />
     <ClCompile Include="ChangePasswordScreen.cpp" />
     <ClCompile Include="MainScreen.cpp" />
     <ClCompile Include="PaginatedScreen.cpp" />
+    <ClCompile Include="Product.cpp" />
     <ClCompile Include="ProductMenuScreen.cpp" />
+    <ClCompile Include="ProductsManager.cpp" />
     <ClCompile Include="StoredItem.cpp" />
     <ClCompile Include="StoredItemManager.cpp" />
     <ClCompile Include="UsersManager.cpp" />

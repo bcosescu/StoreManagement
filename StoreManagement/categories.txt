@@ -4,9 +4,9 @@
 #ID=12
 1;test;this is some sort of category
 2;test;this is some sort of category
-3;test;this is some sort of category
-4;test;this is some sort of category
-5;test;this is some sort of category
+3;phone;this is some sort of category
+4;tv;this is some sort of category
+5;electronics for home and stuff;this is some sort of category
 6;test;this is some sort of category
 7;test;this is some sort of category
 8;test;this is some sort of category

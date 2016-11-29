@@ -4,10 +4,10 @@
 #include "Product.h"
 
 CProductsManager::CProductsManager(void)
-:CStoredItemManager(CATEGORIES_FILE)
+:CStoredItemManager(PRODUCTS_FILE)
 {
     _headerForFile.push_back("#This is the product file");
-    _headerForFile.push_back("#Header is:ID;NAME;DESCRIPTION;CATEGORIES");
+    _headerForFile.push_back("#Header is:ID;NAME;DESCRIPTION;QUANTITY;CATEGORIES");
     importProducts();
 }
 
@@ -21,25 +21,12 @@ CProductsManager::~CProductsManager(void)
     }
 }
 
-bool CProductsManager::isProductNamePresent(const std::string& name)
+bool CProductsManager::createProduct(const std::string& name, const std::string& description, int quantity, const std::vector<ID>& cateories)
 {
     if(!_importedContent)
         importProducts();
 
-    for(PRODUCTMAP::iterator it = _products.begin(); it != _products.end(); it++)
-    {
-        if(!it->second->name().compare(name))
-            return true;
-    }
-    return false;
-}
-
-bool CProductsManager::createProduct(const std::string& name, const std::string& description)
-{
-    if(!_importedContent)
-        importProducts();
-
-    CProduct* tmp = new CProduct(nextId(), name, description);
+    CProduct* tmp = new CProduct(nextId(), name, description, quantity, cateories);
     _products.insert(std::pair<int, CProduct*>(tmp->id(), tmp));
     _productsArr.push_back(tmp);
     return true;
@@ -50,11 +37,18 @@ void CProductsManager::importProducts()
     std::vector<std::string> lines = readContent();
     for(size_t i = 0; i < lines.size(); i++) 
     {
-        std::vector<std::string> tokens = CUtils::split(lines[i], ';');
-        if(tokens.size() != 3)
+        std::vector<std::string> tokens = CUtils::split(lines[i], FIELD_DELIM);
+        if(tokens.size() != 5)
             continue;
 
-        CProduct* tmp = new CProduct(CONVERT_TO_ID(tokens[0]), tokens[1], tokens[2]);
+		std::vector<std::string> categoriesToken = CUtils::split(tokens[4], SUB_FIELD_DELIM);
+		std::vector<ID> categories;
+		for(size_t j = 0; j < categoriesToken.size(); j++)
+		{
+			categories.push_back(CONVERT_TO_ID(categoriesToken[j]));
+		}
+
+        CProduct* tmp = new CProduct(CONVERT_TO_ID(tokens[0]), tokens[1], tokens[2], CONVERT_TO_INT(tokens[3]), categories);
         _products.insert(std::pair<int, CProduct*>(CONVERT_TO_ID(tokens[0]), tmp));
         _productsArr.push_back(tmp);
     }
@@ -66,7 +60,18 @@ void CProductsManager::exportProducts()
     for(PRODUCTMAP::iterator it = _products.begin(); it != _products.end(); it++)
     {
         std::stringstream ss;
-        ss << it->second->id() << FIELD_DELIM << it->second->name() << FIELD_DELIM << it->second->description();
+        ss << it->second->id() << FIELD_DELIM 
+			<< it->second->name() << FIELD_DELIM 
+			<< it->second->description() << FIELD_DELIM
+			<< it->second->quantity() << FIELD_DELIM;
+
+		std::vector<ID> categories = it->second->categories();
+		for(size_t i = 0 ; i < categories.size(); i++)
+		{
+			ss << categories[i];
+			if(i != categories.size() - 1)
+				ss << SUB_FIELD_DELIM;
+		}
         lines.push_back(ss.str());
     }
     writeContent(lines);
