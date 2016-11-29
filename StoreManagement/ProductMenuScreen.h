@@ -1,7 +1,7 @@
 #pragma once
-#include "screenbase.h"
+#include "PaginatedScreen.h"
 class CProductMenuScreen :
-	public CScreenBase
+	public CPaginatedScreen
 {
 public:
 	CProductMenuScreen(void);
@@ -9,5 +9,6 @@ public:
 
 	void layoutContent();
 	void handleInput(const std::string& userInput);
+    void layoutPage(int from, int records);
 };
 

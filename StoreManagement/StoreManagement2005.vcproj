@@ -207,7 +207,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Product.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\ProductMenuScreen.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ProductsManager.cpp"
 				>
 			</File>
 			<File
@@ -309,7 +317,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Product.h"
+				>
+			</File>
+			<File
 				RelativePath=".\ProductMenuScreen.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ProductsManager.h"
 				>
 			</File>
 			<File

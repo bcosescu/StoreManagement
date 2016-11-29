@@ -7,6 +7,10 @@ CCategory::CCategory(void)
 {
 }
 
+CCategory::~CCategory(void)
+{
+}
+
 CCategory::CCategory(const std::string& name, const std::string& description)
 	: CStoredItem()
 {
@@ -21,7 +25,5 @@ CCategory::CCategory(int id, const std::string& name, const std::string& descrip
 	_description = description;
 }
 
-CCategory::~CCategory(void)
-{
-}
+
 

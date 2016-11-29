@@ -31,10 +31,11 @@ void CCategoryMenuScreen::handleInput(const std::string& userInput)
 	switch(CUtils::getNumericOption(userInput)) 
 	{
 		case 1: CNavigationManager::instance().pushScreen(new CAddCategoryScreen()); break;
-/*		case 1: CNavigationManager::instance().pushScreen(new CChangePasswordScreen()); break;
-		case 2: CNavigationManager::instance().pushScreen(new CChangePasswordScreen()); break;
-		case 3: CNavigationManager::instance().pushScreen(new CChangePasswordScreen()); break;
-*/
+        case 2: 
+        {
+            setCurrentError("NOT IMPLEMENTED!");
+            return;
+        }
 	}
 }
 

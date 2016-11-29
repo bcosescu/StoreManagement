@@ -36,7 +36,7 @@ void CScreenBase::layout()
 
 	if(_errorOnScreen.size() != 0)
 	{
-		CUtils::gotoxy(0, INPUT_LINE - 5);
+		CUtils::gotoxy(0, INPUT_LINE - 2);
 		std::cout << "ERROR: " << _errorOnScreen << std::endl;
 	}
 

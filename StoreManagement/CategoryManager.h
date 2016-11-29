@@ -30,6 +30,5 @@ private:
 
 	CATEGORYMAP _categories;
 	CATEGORYARRAY _categoriesArr;
-	bool _importedUsers;
 };
 
