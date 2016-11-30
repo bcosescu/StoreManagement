@@ -16,9 +16,11 @@
 #define INVALID_OPTION -1
 #define INVALID_ID INT_MAX
 #define INVALID_PASSWORD 0
+#define NO_SELECTION -1
 #define USERS_FILE "users.txt"
 #define CATEGORIES_FILE "categories.txt"
 #define PRODUCTS_FILE "products.txt"
+#define INVOICES_FILE "invoices.txt"
 #define FIELD_DELIM ';'
 #define SUB_FIELD_DELIM ','
 
@@ -39,4 +41,8 @@ typedef unsigned int ID;
 #define DESCRIPTION_WIDTH 30
 #define QUANTITY_WIDTH 5
 #define SEPARATOR_WIDTH 2
+#define DATE_WIDTH 8
+#define VALUE_WIDTH 10
+#define PROD_DESCRIPTION_WIDTH 20
+#define PROD_NAME_WIDTH 10
 // TODO: reference additional headers your program requires here

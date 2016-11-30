@@ -6,6 +6,9 @@
 #define CONVERT_TO_ID(x)	CUtils::convertStr<ID>(x)
 #define CONVERT_TO_HASH(x)	CUtils::convertStr<HashType>(x)
 #define CONVERT_TO_INT(x)	CUtils::convertStr<int>(x)
+#define CONVERT_TO_DOUBLE(x) CUtils::convertStr<double>(x)
+#define SELECTED_COLOR 23
+#define NORMAL_COLOR 7
 
 class CUtils
 {
@@ -22,6 +25,9 @@ public:
 	static void split(const std::string &s, char delim, std::vector<std::string> &elems);
 	template<typename T>
 	static T convertStr(const std::string &s);
+
+	static void consoleColor(int color);
+	static std::string currentDate();
 };
 
 template<typename T>

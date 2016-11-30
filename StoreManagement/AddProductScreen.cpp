@@ -9,6 +9,7 @@ CAddProductScreen::CAddProductScreen(void)
 {
 	_currentStep = eEnterName;
 	_quantity = 0;
+	_price = 0;
 }
 
 
@@ -42,15 +43,21 @@ void CAddProductScreen::layoutContent()
 			std::cout << "Enter quantity:" << std::endl;
 			break;
 		}
+		case eEnterPrice:
+		{
+			selectLine(0);
+			std::cout << "Enter price:" << std::endl;
+			break;
+		}
 		case eEnterCategories:
 		{
 			if(_categories.size() > 0)
 			{
-				std::cout << "Enter another category id(if done just press ENTER):" << std::endl;
+				std::cout << "Select another category id(if done just press ENTER):" << std::endl;
 			} 
 			else
 			{
-				std::cout << "Enter category id:" << std::endl;
+				std::cout << "Select category id:" << std::endl;
 			}
 			break;
 		}
@@ -83,16 +90,39 @@ void CAddProductScreen::handleInput(const std::string& userInput)
 				return;
 			}
 
-			_currentStep = eEnterCategories;
+			_currentStep = eEnterPrice;
 			_quantity = CONVERT_TO_INT(userInput);
+			break;
+		}
+		case eEnterPrice:
+		{
+			_currentStep = eEnterCategories;
+			_price = CONVERT_TO_DOUBLE(userInput);
 			break;
 		}
 
 		case eEnterCategories:
 		{
+			if(userInput == "" && selectedLine() != NO_SELECTION)
+			{
+				const std::vector<CCategory*>& categories = CCategoryManager::instance().categoriesAsArray();
+				bool bAlreadyAdded = false;
+				for(size_t i = 0; i < _categories.size() && !bAlreadyAdded; i++)
+				{
+					bAlreadyAdded = _categories[i] == selectedLine();
+				}
+
+				if(bAlreadyAdded)
+					break;
+
+				_categories.push_back(categories[selectedLine()]->id());
+				selectLine(NO_SELECTION);
+				break;
+			}
+
 			if(userInput == "" && _categories.size() > 0)
 			{
-				CProductsManager::instance().createProduct(_productName, _productDescription, _quantity, _categories);
+				CProductsManager::instance().createProduct(_productName, _productDescription, _quantity, _price, _categories);
 				exit();
 				return;
 			}
@@ -103,13 +133,6 @@ void CAddProductScreen::handleInput(const std::string& userInput)
 				return;
 			}
 
-			ID categoryId = CONVERT_TO_ID(userInput);
-			if(!CCategoryManager::instance().category(categoryId))
-			{
-				setCurrentError("Invalid category id!");
-				return;
-			}
-			_categories.push_back(categoryId);
 			break;
 		}
 	}
@@ -131,8 +154,10 @@ void CAddProductScreen::layoutPage(int from, int records)
     for(int i = 0; i < records; i++) 
     {
         CCategory* category = categories[from + i];
+		CUtils::consoleColor(isLineSelected(from + i) ? SELECTED_COLOR : NORMAL_COLOR);
         std::cout << std::setw(ID_WIDTH) << std::right << category->id() << std::setw(SEPARATOR_WIDTH) << " " 
                   << std::setw(NAME_WIDTH) << std::left << category->name() << std::setw(SEPARATOR_WIDTH) << " " 
                   << std::setw(DESCRIPTION_WIDTH) << category->description() << std::endl;
+		CUtils::consoleColor(NORMAL_COLOR);
     }
 }

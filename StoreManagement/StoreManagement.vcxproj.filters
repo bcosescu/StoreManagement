@@ -46,6 +46,9 @@
     <Filter Include="Data\Items">
       <UniqueIdentifier>{a7881c9a-4be4-4f87-8809-9f4b8f20ac60}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UI\Welcome\Signin\Main\Invoice">
+      <UniqueIdentifier>{37e40b52-5e6d-4af5-9366-e352bf0a3ae8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -120,6 +123,18 @@
     <ClInclude Include="AddProductScreen.h">
       <Filter>UI\Welcome\Signin\Main\Product</Filter>
     </ClInclude>
+    <ClInclude Include="InvoiceMenuScreen.h">
+      <Filter>UI\Welcome\Signin\Main\Invoice</Filter>
+    </ClInclude>
+    <ClInclude Include="InvoicesManager.h">
+      <Filter>Data\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Invoice.h">
+      <Filter>Data\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="AddInvoiceScreen.h">
+      <Filter>UI\Welcome\Signin\Main\Invoice</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -190,6 +205,18 @@
     </ClCompile>
     <ClCompile Include="AddProductScreen.cpp">
       <Filter>UI\Welcome\Signin\Main\Product</Filter>
+    </ClCompile>
+    <ClCompile Include="InvoiceMenuScreen.cpp">
+      <Filter>UI\Welcome\Signin\Main\Invoice</Filter>
+    </ClCompile>
+    <ClCompile Include="InvoicesManager.cpp">
+      <Filter>Data\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Invoice.cpp">
+      <Filter>Data\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="AddInvoiceScreen.cpp">
+      <Filter>UI\Welcome\Signin\Main\Invoice</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

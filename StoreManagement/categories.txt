@@ -2,15 +2,15 @@
 #Header is:ID;NAME;DESCRIPTION
 #DO NOT MESS WITH THIS
 #ID=12
-1;test;this is some sort of category
-2;test;this is some sort of category
-3;phone;this is some sort of category
-4;tv;this is some sort of category
-5;electronics for home and stuff;this is some sort of category
-6;test;this is some sort of category
-7;test;this is some sort of category
-8;test;this is some sort of category
-9;test;this is some sort of category
-10;test;this is some sort of category
-11;test;this is some sort of category
-12;qwer;daiasdas
+1;laptop;laptops or some stuff
+2;tv;smart tvs
+3;phone;smart phones
+4;fashion;clothes & some shit
+5;auto;for your car
+6;toys;kids stuff
+7;supermarket;we sell all shit
+8;home;we've got you covered
+9;personal care;yes sir! we have it all
+10;kids;we do not sell kids!!
+11;gaming;lets get you addicted
+12;smart;don't know exactly what should be in here

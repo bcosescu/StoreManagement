@@ -78,11 +78,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddCategoryScreen.h" />
+    <ClInclude Include="AddInvoiceScreen.h" />
     <ClInclude Include="AddProductScreen.h" />
     <ClInclude Include="Category.h" />
     <ClInclude Include="CategoryManager.h" />
     <ClInclude Include="CategoryMenuScreen.h" />
     <ClInclude Include="ChangePasswordScreen.h" />
+    <ClInclude Include="Invoice.h" />
+    <ClInclude Include="InvoiceMenuScreen.h" />
+    <ClInclude Include="InvoicesManager.h" />
     <ClInclude Include="MainScreen.h" />
     <ClInclude Include="PaginatedScreen.h" />
     <ClInclude Include="Product.h" />
@@ -103,11 +107,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AddCategoryScreen.cpp" />
+    <ClCompile Include="AddInvoiceScreen.cpp" />
     <ClCompile Include="AddProductScreen.cpp" />
     <ClCompile Include="Category.cpp" />
     <ClCompile Include="CategoryManager.cpp" />
     <ClCompile Include="CategoryMenuScreen.cpp" />
     <ClCompile Include="ChangePasswordScreen.cpp" />
+    <ClCompile Include="Invoice.cpp" />
+    <ClCompile Include="InvoiceMenuScreen.cpp" />
+    <ClCompile Include="InvoicesManager.cpp" />
     <ClCompile Include="MainScreen.cpp" />
     <ClCompile Include="PaginatedScreen.cpp" />
     <ClCompile Include="Product.cpp" />

@@ -1,6 +1,8 @@
 #include "StdAfx.h"
 #include "Utils.h"
 #include <sstream>
+#include <ctime>
+
 
 CUtils::CUtils(void)
 {
@@ -90,4 +92,23 @@ std::vector<std::string> CUtils::split(const std::string &s, char delim)
     std::vector<std::string> elems;
     split(s, delim, elems);
     return elems;
+}
+
+void CUtils::consoleColor(int color)
+{
+	HANDLE hStd = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hStd, color);
+}
+
+std::string CUtils::currentDate()
+{
+  time_t rawtime;
+  struct tm * timeinfo;
+  char buffer[80];
+
+  time (&rawtime);
+  timeinfo = localtime(&rawtime);
+
+  strftime(buffer,80,"%d-%m-%y",timeinfo);
+  return std::string(buffer);
 }

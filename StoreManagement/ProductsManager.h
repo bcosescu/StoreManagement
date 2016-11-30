@@ -20,7 +20,7 @@ public:
         return my;
     }
 
-    bool createProduct(const std::string& name, const std::string& description, int quantity, const std::vector<ID>& cateories);
+    bool createProduct(const std::string& name, const std::string& description, int quantity, double price, const std::vector<ID>& cateories);
     const PRODUCTARRAY& productsAsArray() { return _productsArr; }
 
 private:
