@@ -1,24 +1,22 @@
 #include "StdAfx.h"
-#include "AddInvoiceScreen.h"
-#include "InvoicesManager.h"
+#include "AddOrderScreen.h"
+#include "OrdersManager.h"
 #include "ProductsManager.h"
-#include "CategoryManager.h"
 #include "Utils.h"
+#include "CategoryManager.h"
 
-CAddInvoiceScreen::CAddInvoiceScreen(void)
-	:CPaginatedScreen("Add Invoice")
+CAddOrderScreen::CAddOrderScreen(void)
+	:CPaginatedScreen("Add Order")
 {
-	_currentStep = eEnterTo;
+	_currentStep = eEnterFrom;
 	_value = 0;
 }
 
-
-
-CAddInvoiceScreen::~CAddInvoiceScreen(void)
+CAddOrderScreen::~CAddOrderScreen(void)
 {
 }
 
-void CAddInvoiceScreen::layoutContent()
+void CAddOrderScreen::layoutContent()
 {
 	const std::vector<CProduct*>& products = CProductsManager::instance().productsAsArray();
     updatePageInfo(7, (int)products.size());
@@ -29,9 +27,9 @@ void CAddInvoiceScreen::layoutContent()
 
 	CUtils::gotoxy(0, INPUT_LINE - 1);
 	switch(_currentStep) {
-		case eEnterTo: 
+		case eEnterFrom: 
 		{
-			std::cout << "Enter name to whom invoice is for:" << std::endl;
+			std::cout << "Enter name to whom the order is from:" << std::endl;
 			break;
 		}
 		case eEnterQuantity: 
@@ -42,14 +40,14 @@ void CAddInvoiceScreen::layoutContent()
 	}
 }
 
-void CAddInvoiceScreen::handleInput(const std::string& userInput)
+void CAddOrderScreen::handleInput(const std::string& userInput)
 {
 	switch(_currentStep) 
 	{
-		case eEnterTo: 
+		case eEnterFrom: 
 		{
 			_currentStep = eEnterQuantity;
-			_to = userInput;
+			_from = userInput;
 			break;
 		}
 
@@ -57,7 +55,7 @@ void CAddInvoiceScreen::handleInput(const std::string& userInput)
 		{
 			if(userInput == "" && _items.size() > 0)
 			{
-				CInvoicesManager::instance().createInvoice(_to, CUtils::currentDate(), _value, _items);
+				COrdersManager::instance().createOrder(_from, CUtils::currentDate(), _value, _items);
 				exit();
 				return;
 			}
@@ -83,15 +81,15 @@ void CAddInvoiceScreen::handleInput(const std::string& userInput)
 			}
 
 			_items.push_back(BuyItem(product->id(), quantity));
-			_value += quantity * product->price();
-			product->decreaseQuantity(quantity);
+			_value += quantity * product->supplierPrice();
+			product->increaseQuantity(quantity);
 			selectLine(NO_SELECTION);
 			break;
 		}
 	}
 }
 
-void CAddInvoiceScreen::layoutPage(int from, int records)
+void CAddOrderScreen::layoutPage(int from, int records)
 {
     std::cout << std::endl;
     std::cout << "Current products:" << std::endl;

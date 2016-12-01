@@ -79,7 +79,9 @@
   <ItemGroup>
     <ClInclude Include="AddCategoryScreen.h" />
     <ClInclude Include="AddInvoiceScreen.h" />
+    <ClInclude Include="AddOrderScreen.h" />
     <ClInclude Include="AddProductScreen.h" />
+    <ClInclude Include="BuyItem.h" />
     <ClInclude Include="Category.h" />
     <ClInclude Include="CategoryManager.h" />
     <ClInclude Include="CategoryMenuScreen.h" />
@@ -88,6 +90,9 @@
     <ClInclude Include="InvoiceMenuScreen.h" />
     <ClInclude Include="InvoicesManager.h" />
     <ClInclude Include="MainScreen.h" />
+    <ClInclude Include="Order.h" />
+    <ClInclude Include="OrderMenuScreen.h" />
+    <ClInclude Include="OrdersManager.h" />
     <ClInclude Include="PaginatedScreen.h" />
     <ClInclude Include="Product.h" />
     <ClInclude Include="ProductMenuScreen.h" />
@@ -108,6 +113,7 @@
   <ItemGroup>
     <ClCompile Include="AddCategoryScreen.cpp" />
     <ClCompile Include="AddInvoiceScreen.cpp" />
+    <ClCompile Include="AddOrderScreen.cpp" />
     <ClCompile Include="AddProductScreen.cpp" />
     <ClCompile Include="Category.cpp" />
     <ClCompile Include="CategoryManager.cpp" />
@@ -117,6 +123,9 @@
     <ClCompile Include="InvoiceMenuScreen.cpp" />
     <ClCompile Include="InvoicesManager.cpp" />
     <ClCompile Include="MainScreen.cpp" />
+    <ClCompile Include="Order.cpp" />
+    <ClCompile Include="OrderMenuScreen.cpp" />
+    <ClCompile Include="OrdersManager.cpp" />
     <ClCompile Include="PaginatedScreen.cpp" />
     <ClCompile Include="Product.cpp" />
     <ClCompile Include="ProductMenuScreen.cpp" />

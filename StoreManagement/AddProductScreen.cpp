@@ -8,7 +8,6 @@ CAddProductScreen::CAddProductScreen(void)
 	:CPaginatedScreen("Add Product")
 {
 	_currentStep = eEnterName;
-	_quantity = 0;
 	_price = 0;
 }
 
@@ -38,15 +37,16 @@ void CAddProductScreen::layoutContent()
 			std::cout << "Enter description:" << std::endl;
 			break;
 		}
-		case eEnterQuantity: 
-		{
-			std::cout << "Enter quantity:" << std::endl;
-			break;
-		}
 		case eEnterPrice:
 		{
 			selectLine(0);
 			std::cout << "Enter price:" << std::endl;
+			break;
+		}
+		case eEnterSupplierPrice:
+		{
+			selectLine(0);
+			std::cout << "Enter supplier price:" << std::endl;
 			break;
 		}
 		case eEnterCategories:
@@ -77,27 +77,22 @@ void CAddProductScreen::handleInput(const std::string& userInput)
 
 		case eEnterDescription:
 		{
-			_currentStep = eEnterQuantity;
+			_currentStep = eEnterPrice;
 			_productDescription = userInput;
 			break;
 		}
 
-		case eEnterQuantity: 
-		{	
-			if(!CUtils::isValidInt(userInput))
-			{
-				setCurrentError("Invalid input!");
-				return;
-			}
-
-			_currentStep = eEnterPrice;
-			_quantity = CONVERT_TO_INT(userInput);
-			break;
-		}
 		case eEnterPrice:
 		{
-			_currentStep = eEnterCategories;
+			_currentStep = eEnterSupplierPrice;
 			_price = CONVERT_TO_DOUBLE(userInput);
+			break;
+		}
+
+		case eEnterSupplierPrice:
+		{
+			_currentStep = eEnterCategories;
+			_supplierPrice = CONVERT_TO_DOUBLE(userInput);
 			break;
 		}
 
@@ -122,7 +117,7 @@ void CAddProductScreen::handleInput(const std::string& userInput)
 
 			if(userInput == "" && _categories.size() > 0)
 			{
-				CProductsManager::instance().createProduct(_productName, _productDescription, _quantity, _price, _categories);
+				CProductsManager::instance().createProduct(_productName, _productDescription, _price, _supplierPrice, _categories);
 				exit();
 				return;
 			}

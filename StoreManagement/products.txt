@@ -2,8 +2,8 @@
 #Header is:ID;NAME;DESCRIPTION;QUANTITY;PRICE;CATEGORIES
 #DO NOT MESS WITH THIS
 #ID=5
-1;iPhone;Apple;36;120.3;3
-2;LCD;This is monitor;7;100;2,8
-3;Shirt;Long sleeve;99;13;4
-4;WOW;The game;5;25.77;11
-5;Yokohama;Tyres for your car;28;150;5
+1;iPhone;Apple;36;120.3;100;3
+2;LCD;This is monitor;7;100;90;2,8
+3;Shirt;Long sleeve;99;13;2;4
+4;WOW;The game;7;25.77;25;11
+5;Yokohama;Tyres for your car;28;150;120;5

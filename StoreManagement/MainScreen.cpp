@@ -8,6 +8,7 @@
 #include "CategoryMenuScreen.h"
 #include "ProductMenuScreen.h"
 #include "InvoiceMenuScreen.h"
+#include "OrderMenuScreen.h"
 
 CMainScreen::CMainScreen(void)
 	:CScreenBase("Main")
@@ -26,6 +27,7 @@ void CMainScreen::layoutContent()
 	std::cout << "[2] Category Menu" << std::endl;
 	std::cout << "[3] Product Menu" << std::endl;
 	std::cout << "[4] Invoices Menu" << std::endl;
+	std::cout << "[5] Orders Menu" << std::endl;
 	std::cout << "[X] Exit" << std::endl;
 }
 
@@ -38,6 +40,7 @@ void CMainScreen::handleInput(const std::string& userInput)
 		case 2: screen = new CCategoryMenuScreen(); break;
 		case 3: screen = new CProductMenuScreen(); break;
 		case 4: screen = new CInvoiceMenuScreen(); break;
+		case 5: screen = new COrderMenuScreen(); break;
 	}
 
 	if(screen)

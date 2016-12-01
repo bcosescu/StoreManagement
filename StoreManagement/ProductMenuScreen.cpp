@@ -48,10 +48,11 @@ void CProductMenuScreen::layoutPage(int from, int records)
 
     std::cout << std::setw(ID_WIDTH) << std::right << "ID" << std::setw(SEPARATOR_WIDTH) << " " 
         << std::setw(PROD_NAME_WIDTH) << std::left << "NAME" << std::setw(SEPARATOR_WIDTH) << " " 
-        << std::setw(PROD_DESCRIPTION_WIDTH) << "DESCRIPTION" << std::setw(SEPARATOR_WIDTH) << " " 
-		<< std::setw(7) << "PRICE" << std::setw(SEPARATOR_WIDTH) << " " 
+        << std::setw(PROD_DESCRIPTION_WIDTH) << std::left << "DESCRIPTION" << std::setw(SEPARATOR_WIDTH) << " " 
+		<< std::setw(7) << std::right << "PRICE" << std::setw(SEPARATOR_WIDTH) << " " 
+		<< std::setw(10) << std::right << "SUPP PRICE" << std::setw(SEPARATOR_WIDTH) << " "
 		<< std::setw(QUANTITY_WIDTH) << std::right << "QNT" << std::left << std::setw(SEPARATOR_WIDTH) << " " 
-		<< std::setw(10) << "CATEGORIES" 
+		<< std::setw(10) << std::left << "CATEGORIES" 
 		<< std::endl << std::endl;
 
     const std::vector<CProduct*>& products = CProductsManager::instance().productsAsArray();
@@ -63,9 +64,10 @@ void CProductMenuScreen::layoutPage(int from, int records)
             << std::setw(PROD_NAME_WIDTH) << std::left << product->name() << std::setw(SEPARATOR_WIDTH) << " " 
             << std::setw(PROD_DESCRIPTION_WIDTH) << product->description() << std::setw(SEPARATOR_WIDTH) << " " 
 			<< std::setw(7) << std::right << product->price() << std::left << std::setw(SEPARATOR_WIDTH) << " " 
+			<< std::setw(10) << std::right << product->supplierPrice() << std::left << std::setw(SEPARATOR_WIDTH) << " "
 			<< std::setw(QUANTITY_WIDTH) << std::right << product->quantity() << std::left;
 
-		std::cout << std::setw(SEPARATOR_WIDTH) << " " << std::setw(20);
+		std::cout << std::setw(SEPARATOR_WIDTH) << " " << std::setw(10);
 
 		const std::vector<ID>& categories = product->categories();
 		std::stringstream ss;

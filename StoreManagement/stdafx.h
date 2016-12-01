@@ -21,6 +21,7 @@
 #define CATEGORIES_FILE "categories.txt"
 #define PRODUCTS_FILE "products.txt"
 #define INVOICES_FILE "invoices.txt"
+#define ORDERS_FILE "orders.txt"
 #define FIELD_DELIM ';'
 #define SUB_FIELD_DELIM ','
 
@@ -36,10 +37,10 @@ typedef unsigned int ID;
 #define max(a,b)            (((a) > (b)) ? (a) : (b))
 #define min(a,b)            (((a) < (b)) ? (a) : (b))
 
-#define ID_WIDTH 5
+#define ID_WIDTH 3
 #define NAME_WIDTH 20
 #define DESCRIPTION_WIDTH 30
-#define QUANTITY_WIDTH 5
+#define QUANTITY_WIDTH 3
 #define SEPARATOR_WIDTH 2
 #define DATE_WIDTH 8
 #define VALUE_WIDTH 10

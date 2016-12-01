@@ -2,24 +2,7 @@
 #include <string>
 #include <vector>
 #include "StoredItem.h"
-
-struct BuyItem
-{
-	BuyItem()
-	{
-		productId = INVALID_ID;
-		quantity = 0;
-	}
-
-	BuyItem(ID id, int qnt)
-	{
-		productId = id;
-		quantity = qnt;
-	}
-
-	ID productId;
-	int quantity;
-};
+#include "BuyItem.h"
 
 class CInvoice : public CStoredItem
 {

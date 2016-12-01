@@ -1,11 +1,12 @@
 #pragma once
 #include "paginatedscreen.h"
-class CInvoiceMenuScreen :
+
+class COrderMenuScreen :
 	public CPaginatedScreen
 {
 public:
-	CInvoiceMenuScreen(void);
-	~CInvoiceMenuScreen(void);
+	COrderMenuScreen(void);
+	~COrderMenuScreen(void);
 	
 	void layoutContent();
 	void handleInput(const std::string& userInput);

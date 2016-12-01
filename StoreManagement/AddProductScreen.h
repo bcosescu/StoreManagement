@@ -5,7 +5,7 @@
 class CAddProductScreen :
 	public CPaginatedScreen
 {
-	typedef enum { eEnterName, eEnterDescription, eEnterQuantity, eEnterPrice, eEnterCategories } eStep;
+	typedef enum { eEnterName, eEnterDescription, eEnterPrice, eEnterSupplierPrice, eEnterCategories } eStep;
 public:
 	CAddProductScreen(void);
 	~CAddProductScreen(void);
@@ -18,8 +18,8 @@ private:
 	eStep _currentStep;
 	std::string _productName;
 	std::string _productDescription;
-	int _quantity;
 	double _price;
+	double _supplierPrice;
 	std::vector<ID> _categories;
 };
 

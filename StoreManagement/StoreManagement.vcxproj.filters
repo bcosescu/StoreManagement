@@ -49,6 +49,9 @@
     <Filter Include="UI\Welcome\Signin\Main\Invoice">
       <UniqueIdentifier>{37e40b52-5e6d-4af5-9366-e352bf0a3ae8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UI\Welcome\Signin\Main\Order">
+      <UniqueIdentifier>{4e5f16c4-772d-402a-b8ea-563903d55ae0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -135,6 +138,21 @@
     <ClInclude Include="AddInvoiceScreen.h">
       <Filter>UI\Welcome\Signin\Main\Invoice</Filter>
     </ClInclude>
+    <ClInclude Include="BuyItem.h">
+      <Filter>Data\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Order.h">
+      <Filter>Data\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="OrdersManager.h">
+      <Filter>Data\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="OrderMenuScreen.h">
+      <Filter>UI\Welcome\Signin\Main\Order</Filter>
+    </ClInclude>
+    <ClInclude Include="AddOrderScreen.h">
+      <Filter>UI\Welcome\Signin\Main\Order</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -217,6 +235,18 @@
     </ClCompile>
     <ClCompile Include="AddInvoiceScreen.cpp">
       <Filter>UI\Welcome\Signin\Main\Invoice</Filter>
+    </ClCompile>
+    <ClCompile Include="Order.cpp">
+      <Filter>Data\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="OrdersManager.cpp">
+      <Filter>Data\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="OrderMenuScreen.cpp">
+      <Filter>UI\Welcome\Signin\Main\Order</Filter>
+    </ClCompile>
+    <ClCompile Include="AddOrderScreen.cpp">
+      <Filter>UI\Welcome\Signin\Main\Order</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
