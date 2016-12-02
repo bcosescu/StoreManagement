@@ -4,6 +4,7 @@
 #include "ProductsManager.h"
 #include "Utils.h"
 #include "CategoryManager.h"
+#include "LayoutTableListHelper.h"
 
 CAddOrderScreen::CAddOrderScreen(void)
 	:CPaginatedScreen("Add Order")
@@ -74,9 +75,9 @@ void CAddOrderScreen::handleInput(const std::string& userInput)
 
 			int quantity = CONVERT_TO_INT(userInput);
 			CProduct* product = CProductsManager::instance().productsAsArray()[selectedLine()];
-			if(quantity > product->quantity())
+			if(quantity <= 0)
 			{
-				setCurrentError("Quantity requested is too big(That what she said)!");
+				setCurrentError("Invalid quantity!");
 				return;
 			}
 
@@ -91,43 +92,5 @@ void CAddOrderScreen::handleInput(const std::string& userInput)
 
 void CAddOrderScreen::layoutPage(int from, int records)
 {
-    std::cout << std::endl;
-    std::cout << "Current products:" << std::endl;
-
-    std::cout << std::setw(ID_WIDTH) << std::right << "ID" << std::setw(SEPARATOR_WIDTH) << " " 
-        << std::setw(PROD_NAME_WIDTH) << std::left << "NAME" << std::setw(SEPARATOR_WIDTH) << " " 
-        << std::setw(PROD_DESCRIPTION_WIDTH) << "DESCRIPTION" << std::setw(SEPARATOR_WIDTH) << " " 
-		<< std::setw(7) << "PRICE" << std::setw(SEPARATOR_WIDTH) << " " 
-		<< std::setw(QUANTITY_WIDTH) << std::right << "QNT" << std::left << std::setw(SEPARATOR_WIDTH) << " " 
-		<< std::setw(10) << "CATEGORIES" 
-		<< std::endl << std::endl;
-
-    const std::vector<CProduct*>& products = CProductsManager::instance().productsAsArray();
-    for(int i = 0; i < records; i++) 
-    {
-        CProduct* product = products[from + i];
-		CUtils::consoleColor(isLineSelected(from + i) ? SELECTED_COLOR : NORMAL_COLOR);
-        std::cout << std::setw(ID_WIDTH) << std::right << product->id() << std::setw(SEPARATOR_WIDTH) << " " 
-            << std::setw(PROD_NAME_WIDTH) << std::left << product->name() << std::setw(SEPARATOR_WIDTH) << " " 
-            << std::setw(PROD_DESCRIPTION_WIDTH) << product->description() << std::setw(SEPARATOR_WIDTH) << " " 
-			<< std::setw(7) << std::right << product->price() << std::left << std::setw(SEPARATOR_WIDTH) << " " 
-			<< std::setw(QUANTITY_WIDTH) << std::right << product->quantity() << std::left;
-
-		std::cout << std::setw(SEPARATOR_WIDTH) << " " << std::setw(20);
-
-		const std::vector<ID>& categories = product->categories();
-		std::stringstream ss;
-		for(size_t j = 0; j < categories.size(); j++)
-		{
-			CCategory * category = CCategoryManager::instance().category(categories[j]);
-			if(category)
-			{
-				ss << category->name();
-				if(j != categories.size() - 1)
-					ss << ',';
-			}
-		}
-		std::cout << ss.str() << std::endl;
-		CUtils::consoleColor(NORMAL_COLOR);
-    }
+	CLayoutTableListHelper::layoutPageForProducts(std::cout, from, records, selectedLine());
 }

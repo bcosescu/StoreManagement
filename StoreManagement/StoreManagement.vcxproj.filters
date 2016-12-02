@@ -153,6 +153,9 @@
     <ClInclude Include="AddOrderScreen.h">
       <Filter>UI\Welcome\Signin\Main\Order</Filter>
     </ClInclude>
+    <ClInclude Include="LayoutTableListHelper.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -247,6 +250,9 @@
     </ClCompile>
     <ClCompile Include="AddOrderScreen.cpp">
       <Filter>UI\Welcome\Signin\Main\Order</Filter>
+    </ClCompile>
+    <ClCompile Include="LayoutTableListHelper.cpp">
+      <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

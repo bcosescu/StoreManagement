@@ -4,6 +4,7 @@
 #include "NavigationManager.h"
 #include "InvoicesManager.h"
 #include "AddInvoiceScreen.h"
+#include "LayoutTableListHelper.h"
 
 CInvoiceMenuScreen::CInvoiceMenuScreen(void)
 	:CPaginatedScreen("Invoice Menu")
@@ -46,24 +47,5 @@ void CInvoiceMenuScreen::handleInput(const std::string& userInput)
 
 void CInvoiceMenuScreen::layoutPage(int from, int records)
 {
-    std::cout << std::endl;
-    std::cout << "Current invoices:" << std::endl;
-
-    std::cout << std::setw(ID_WIDTH) << std::right << "ID" << std::setw(SEPARATOR_WIDTH) << " " 
-              << std::setw(DATE_WIDTH) << std::left << "DATE" << std::setw(SEPARATOR_WIDTH) << " " 
-              << std::setw(NAME_WIDTH) << "TO" << std::setw(SEPARATOR_WIDTH) << " "
-			  << std::setw(VALUE_WIDTH) << "VALUE" << std::setw(SEPARATOR_WIDTH) << " "
-			  << std::endl << std::endl;
-
-    const std::vector<CInvoice*>& invoices = CInvoicesManager::instance().invoicesAsArray();
-    for(int i = 0; i < records; i++) 
-    {
-		CUtils::consoleColor(isLineSelected(from + i) ? SELECTED_COLOR : NORMAL_COLOR);
-        CInvoice* invoice = invoices[from + i];
-        std::cout << std::setw(ID_WIDTH) << std::right << invoice->id() << std::setw(SEPARATOR_WIDTH) << " " 
-                  << std::setw(DATE_WIDTH) << std::left << invoice->date() << std::setw(SEPARATOR_WIDTH) << " " 
-				  << std::setw(NAME_WIDTH) << std::left << invoice->to() << std::setw(SEPARATOR_WIDTH) << " "
-                  << std::setw(VALUE_WIDTH) << std::left << invoice->value() << std::endl;
-		CUtils::consoleColor(NORMAL_COLOR);
-    }
+	CLayoutTableListHelper::layoutPageForInvoices(std::cout, from, records, selectedLine());
 }

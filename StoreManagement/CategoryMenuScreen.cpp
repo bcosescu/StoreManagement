@@ -4,6 +4,7 @@
 #include "NavigationManager.h"
 #include "AddCategoryScreen.h"
 #include "CategoryManager.h"
+#include "LayoutTableListHelper.h"
 
 CCategoryMenuScreen::CCategoryMenuScreen(void)
 	:CPaginatedScreen("Category Menu")
@@ -41,22 +42,5 @@ void CCategoryMenuScreen::handleInput(const std::string& userInput)
 
 void CCategoryMenuScreen::layoutPage(int from, int records)
 {
-    std::cout << std::endl;
-    std::cout << "Current categories:" << std::endl;
-
-    std::cout << std::setw(ID_WIDTH) << std::right << "ID" << std::setw(SEPARATOR_WIDTH) << " " 
-              << std::setw(NAME_WIDTH) << std::left << "NAME" << std::setw(SEPARATOR_WIDTH) << " " 
-              << std::setw(DESCRIPTION_WIDTH) << "DESCRIPTION" << std::endl << std::endl;
-
-    const std::vector<CCategory*>& categories = CCategoryManager::instance().categoriesAsArray();
-    for(int i = 0; i < records; i++) 
-    {
-        CCategory* category = categories[from + i];
-		CUtils::consoleColor(isLineSelected(from + i) ? SELECTED_COLOR : NORMAL_COLOR);
-        std::cout << std::setw(ID_WIDTH) << std::right << category->id() << std::setw(SEPARATOR_WIDTH) << " " 
-                  << std::setw(NAME_WIDTH) << std::left << category->name() << std::setw(SEPARATOR_WIDTH) << " " 
-                  << std::setw(DESCRIPTION_WIDTH) << category->description() << std::endl;
-    }
-
-	CUtils::consoleColor(NORMAL_COLOR);
+	CLayoutTableListHelper::layoutPageForCategories(std::cout, from, records, selectedLine());
 }

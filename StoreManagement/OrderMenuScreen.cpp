@@ -4,6 +4,7 @@
 #include "NavigationManager.h"
 #include "OrdersManager.h"
 #include "AddOrderScreen.h"
+#include "LayoutTableListHelper.h"
 
 COrderMenuScreen::COrderMenuScreen(void)
 	:CPaginatedScreen("Order Menu")
@@ -46,24 +47,5 @@ void COrderMenuScreen::handleInput(const std::string& userInput)
 
 void COrderMenuScreen::layoutPage(int from, int records)
 {
-    std::cout << std::endl;
-    std::cout << "Current orders:" << std::endl;
-
-    std::cout << std::setw(ID_WIDTH) << std::right << "ID" << std::setw(SEPARATOR_WIDTH) << " " 
-              << std::setw(DATE_WIDTH) << std::left << "DATE" << std::setw(SEPARATOR_WIDTH) << " " 
-              << std::setw(NAME_WIDTH) << "FROM" << std::setw(SEPARATOR_WIDTH) << " "
-			  << std::setw(VALUE_WIDTH) << "VALUE" << std::setw(SEPARATOR_WIDTH) << " "
-			  << std::endl << std::endl;
-
-    const std::vector<COrder*>& orders = COrdersManager::instance().ordersAsArray();
-    for(int i = 0; i < records; i++) 
-    {
-		CUtils::consoleColor(isLineSelected(from + i) ? SELECTED_COLOR : NORMAL_COLOR);
-        COrder* order = orders[from + i];
-        std::cout << std::setw(ID_WIDTH) << std::right << order->id() << std::setw(SEPARATOR_WIDTH) << " " 
-                  << std::setw(DATE_WIDTH) << std::left << order->date() << std::setw(SEPARATOR_WIDTH) << " " 
-				  << std::setw(NAME_WIDTH) << std::left << order->from() << std::setw(SEPARATOR_WIDTH) << " "
-                  << std::setw(VALUE_WIDTH) << std::left << order->value() << std::endl;
-		CUtils::consoleColor(NORMAL_COLOR);
-    }
+	CLayoutTableListHelper::layoutPageForOrders(std::cout, from, records, selectedLine());
 }

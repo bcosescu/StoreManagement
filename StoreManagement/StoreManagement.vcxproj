@@ -96,6 +96,7 @@
     <ClInclude Include="PaginatedScreen.h" />
     <ClInclude Include="Product.h" />
     <ClInclude Include="ProductMenuScreen.h" />
+    <ClInclude Include="LayoutTableListHelper.h" />
     <ClInclude Include="ProductsManager.h" />
     <ClInclude Include="StoredItem.h" />
     <ClInclude Include="StoredItemManager.h" />
@@ -129,6 +130,7 @@
     <ClCompile Include="PaginatedScreen.cpp" />
     <ClCompile Include="Product.cpp" />
     <ClCompile Include="ProductMenuScreen.cpp" />
+    <ClCompile Include="LayoutTableListHelper.cpp" />
     <ClCompile Include="ProductsManager.cpp" />
     <ClCompile Include="StoredItem.cpp" />
     <ClCompile Include="StoredItemManager.cpp" />
